@@ -1,0 +1,69 @@
+\documentclass[]{article}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc} %use different encoding (copy from pdf is now possible}
+\usepackage{fullpage} %small margins
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\La}{\mathcal{L}}
+\newcommand{\Lb}{\pazocal{L}}
+
+%opening
+\title{Languages and Automata Assignment 1}
+\author{Dibran Dokter s1047390}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{1}
+	\subsection*{a)}
+	$f:A^{*}\rightarrow A^{*}:$\\
+	$f(\lambda) = \lambda$\\
+	$f(a\cdot w) = f(w)$\\
+	$f(b\cdot w) = b\ f(w)$
+	
+	\subsection*{b)}
+	$\forall w \in A^{*} [f(f(w)) = f(w)]$\\\\
+	$f(\lambda) = \lambda = f(f(w))\ \checkmark$\\
+	We assume f(w) holds. Thus f(f(w)) = f(w) \qquad(IH)\\
+	$f(f(x \cdot w))\\
+	= f(f(x)) \cdot f(f(w)) \qquad $(rewrite as concatenation)$\\
+	= f(f(x)) \cdot f(w) \qquad$(IH)$\\
+	= f(x) \cdot f(w) \qquad $(by definition of f)$\\
+	= f(x\cdot w)\qquad$ (By def of concatenation)$\checkmark$
+	
+	
+	\section*{2}
+	\subsection*{a)}
+	The word "abba" is in all languages.\\
+	The word "b" is in none of the languages since it always starts with an a or the word "bba" which means that it is impossible to have just "b" as a word.
+	\subsection*{b)}
+	$L_2$ is different from $L_1$ since $"a" \notin L_1$.\\
+	$L_3$ is different from $L_1$ and $L_2$ since $"aaa" \notin L_2$ or $L_1$.
+	\subsection*{c)}
+	Yes the language L is equal to ${a,b}^{*}$.\\
+	$\lambda \in L$ since we can choose 0 for both stars.\\
+	We are also able to choose any arbitrary configuration of a's and b's since we can use the part $(b^{*} a)^{*}$ to choose as many a's as we want and then we can use $b^{*}$ to choose as many b's as we want and repeat this because of the outer star.
+	In this way we can make any word that is also in ${a,b}^{*}$.
+	
+	\section*{3}
+	\subsection*{a)}
+	$L = \Lb(a^{*}(bba\cup baba\cup ba^{*}b\cup\lambda)^{*} a^{*})$\\
+	Since we want to have an even number of b's we need to give all the possible options that give an even amount of b's and an a at the end. Since 0 is even we also need to include $\lambda$ as an option.\\
+	Besides this we should allow any number of a's around and in between the b's.\\\\
+	(I used $\cup$ instead of + to indicate the union.)
+	\subsection*{b)}
+	$L = \Lb(((DU \cup UD)^{*} \cup D \cup U) \cup ((DU \cup UD)^{*}D) \cup ((DU \cup UD)^{*}U))$\\\\
+	The first part allows the elevator to go up and down one and then return to the ground floor. The part $\cup D \cup U$ allows paths of length 1.\\
+	The part after that allows the path to stop at the upper floor or the basement, which the first part did not allow.
+	
+	
+\end {document}
