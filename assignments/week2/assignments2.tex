@@ -1,0 +1,61 @@
+\documentclass[]{article}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc} %use different encoding (copy from pdf is now possible}
+\usepackage{fullpage} %small margins
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\La}{\mathcal{L}}
+\newcommand{\Lb}{\pazocal{L}}
+
+%opening
+\title{Languages and Automata Assignment 2}
+\author{Dibran Dokter s1047390}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{1}
+	\subsection*{a)}
+	$L = \Lb((a^{*}(aa^{*}\cup bb^{*}\cup ba^{*}\cup ab^{*}) \cup (b(bb^{*}\cup aa^{*}\cup ab^{*}\cup ba{*}))$
+	\subsection*{b)}
+	\begin{figure}[H]
+		\includegraphics[scale=0.3]{/home/owner/git/LanguagesAndAutomata/assignments/week2/images/automata1.jpeg}
+	\end{figure}
+	\subsection*{c)}
+	$abaa \notin L$ since:\\
+	$\delta^{*}(q_0,abba) =$\\
+	$\delta^{*}(q_1,bba) =$\\
+	$\delta^{*}(q_4,ba) =$\\
+	$\delta^{*}(q_4,a) =$\\
+	$\delta^{*}(q_3,\lambda) =$\\
+	Since $q_3$ is not an accepting state, the word abba is not accepted.\\
+	
+	$ba \in L$ since:\\
+	$\delta^{*}(q_0,ba) =$\\
+	$\delta^{*}(q_0,a) =$\\
+	$\delta^{*}(q_1,\lambda) =$\\
+	Since $q_1$ is an accepting state, the word ba is accepted.
+	
+	\subsection*{d)}
+	\begin{figure}[H]
+		\includegraphics[scale=0.3]{/home/owner/git/LanguagesAndAutomata/assignments/week2/images/automata3.jpeg}
+	\end{figure}
+	
+	\section*{2}
+	\subsection*{a)}
+	\begin{figure}[H]
+		\includegraphics[scale=0.3]{/home/owner/git/LanguagesAndAutomata/assignments/week2/images/automata2.jpeg}
+	\end{figure}
+	\subsection*{b)}
+	$L = \Lb(b^{*}\cup aa^{*}(b(bb^{*})\cup ba))$
+	
+\end {document}
