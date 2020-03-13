@@ -1,0 +1,64 @@
+\documentclass[]{article}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc} %use different encoding (copy from pdf is now possible}
+\usepackage{fullpage} %small margins
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\La}{\mathcal{L}}
+\newcommand{\Lb}{\pazocal{L}}
+
+%opening
+\title{Languages and Automata Assignment 5}
+\author{Dibran Dokter s1047390}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{1}
+	\subsection*{a)}
+	First construction:\\
+	S $\rightarrow$ aS $\rightarrow$ a aS $\rightarrow$ a a SS $\rightarrow$ a a Sb $\rightarrow$ a a b b\\
+	Second construction:\\
+	S $\rightarrow$ aS $\rightarrow$ a SS $\rightarrow$ a ab S $\rightarrow$ a a b b
+	\subsection*{b)}
+	$(a^{*} \cup ab)^{*} b^{*}$
+	\subsection*{c)}
+	S $\rightarrow$ aS | Sb | SS
+	\section*{2}
+	\subsection*{$\Lb{}_1$}
+	S $\rightarrow$ aN | $\lambda$\\
+	N $\rightarrow$ bL\\
+	M $\rightarrow$ aS\\
+	L $\rightarrow$ aMS\\
+	
+	This grammar describes the language $\Lb{}_1$ because if we take an a we also need to take n+m b and then another a before we can again take an a.
+	\subsection*{$\Lb{}_2$}
+	S $\rightarrow$ abS | rS | bS | bR\\
+	R $\rightarrow$ rrr\\
+	
+	This grammar describes the language $\Lb{}_2$ because we can only take an a if we also take a b, thus giving the rule that every a should be followed directly by a b. Besides this we can put any number of r's and b's before we have to end the word using the rule bR, which ensures the word is ended with brrr.
+	
+	\section*{3}
+	\subsection*{1)}
+	This does not hold since there are languages where the complement of the language is context-free as well. An example of such a language is the simple language L = $\{a^{n}\}$, where we have $\Sigma = \{a,b\}$. Then we have the $\bar{L}$ = $\{b^{n}\}$.
+	\subsection*{2)}
+	This does not hold since we can find languages that are regular and their intersection is not regular. An example of is the language L = $\{a^{n}b^{n}c^{m}|m,n \geq 0\}$ and K = $\{a^{m}b^{n}c^{n}|m,n \geq 0\}$ which leads to L $\cap$ K = $\{a^{n}b^{n}c^{n}|n \geq 0\}$ which is known not to be regular.
+	\section*{4}
+	We first label the states in the DFA to non-terminals in the grammar.\\
+	$q_0 = S, q_1 = Q, q_2 = M, q_3 = L, q_4 = N$\\\\
+	Then we can define the following grammar:\\
+	S $\rightarrow$ aS | bQ | $\lambda$\\ 
+	Q $\rightarrow$ aS | bL\\
+	L $\rightarrow$ bL | aM\\
+	M $\rightarrow$ aS | bN\\
+	N $\rightarrow$ aN | bN\\
+\end {document}
